@@ -12,8 +12,10 @@ def generate_blocks(number_of_blocks):
     
 
     ### YOUR CODE HERE
-
-   
-
-
-    
+    blkchn = Blockchain()
+    blkchn.genesis()
+    for x in range(number_of_blocks - 1):
+        blk = blkchn.get_current_block()
+        blkchn.mine(blk)
+        
+    return blkchn.get_current_block().hash_self()
